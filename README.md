@@ -9,7 +9,7 @@
 
 ---
 <p align="center">
-  <img src="recursos/introsistema.png" width="900" height="120">
+  <img src="recursos/introsistema.png" width="600">
 </p>
 ## Descripción del sistema
 
@@ -55,7 +55,7 @@ Esto permite gestionar de forma clara cada elemento del sistema.
 
 ---
 <p align="center">
-  <img src="recursos/Arquitectura.png" width="900" height="120">
+  <img src="recursos/Arquitectura.png" width="900" height="300">
 </p>
 ## Estructura del proyecto
 
