@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="src/recursos/logo.png" width="220">
+  <img src="recursos/logo.png" width="220">
 </p>
 
 # Agencia de Modelaje  
