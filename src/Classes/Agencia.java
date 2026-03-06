@@ -33,7 +33,7 @@ public class Agencia {
         lugares    = new Lugar[capLugares];
     }
 
-    // ---- Getters de contadores y acceso por indice ----
+    //Getters de contadores y acceso por indice
     public int getCantidadModelos()    { return cantidadModelos; }
     public int getCantidadFotografos() { return cantidadFotografos; }
     public int getCantidadEventos()    { return cantidadEventos; }
@@ -44,7 +44,7 @@ public class Agencia {
     public Evento    getEvento(int i)    { return eventos[i]; }
     public Lugar     getLugar(int i)     { return lugares[i]; }
 
-    // ---- Modelos ----
+    //Modelos
     public boolean agregarModelo(Modelo m) {
         if (m == null) return false;
         if (cantidadModelos == modelos.length) modelos = crecerModelos();
@@ -75,7 +75,7 @@ public class Agencia {
         return null;
     }
 
-    // ---- Fotografos ----
+    //Fotografos
     public boolean agregarFotografo(Fotografo f) {
         if (f == null) return false;
         if (cantidadFotografos == fotografos.length) fotografos = crecerFotografos();
@@ -106,7 +106,7 @@ public class Agencia {
         return null;
     }
 
-    // ---- Eventos ----
+    //Eventos
     public boolean agregarEvento(Evento e) {
         if (e == null) return false;
         if (cantidadEventos == eventos.length) eventos = crecerEventos();
@@ -137,7 +137,7 @@ public class Agencia {
         return null;
     }
 
-    // ---- Lugares ----
+    //Lugares
     public boolean agregarLugar(Lugar l) {
         if (l == null) return false;
         if (cantidadLugares == lugares.length) lugares = crecerLugares();
@@ -157,7 +157,7 @@ public class Agencia {
         return null;
     }
 
-    // ---- Persistencia ----
+    //Persistencia
     public void guardarDatos() {
         // Crear la carpeta "datos/" si no existe
         new File(CARPETA_DATOS).mkdirs();

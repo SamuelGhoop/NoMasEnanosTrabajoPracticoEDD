@@ -9,9 +9,7 @@ import java.time.LocalDate;
 
 public class VentanaPrincipal extends JFrame {
 
-    // ================================================================
     // PALETA DE COLORES — tema luxury oscuro con dorado
-    // ================================================================
     private static final Color C_FONDO        = new Color(10,  10,  12);
     private static final Color C_SUPERFICIE   = new Color(20,  20,  24);
     private static final Color C_TARJETA      = new Color(28,  28,  34);
@@ -25,37 +23,35 @@ public class VentanaPrincipal extends JFrame {
     private Agencia agencia;
     private JTabbedPane pestanas;
 
-    // Modelos
+    //Modelos
     private JTextField txtNombreModelo, txtIdModelo, txtContactoModelo;
     private JTextField txtCodigoModelo, txtEstaturaModelo, txtCategoriaModelo;
     private JCheckBox  chkDisponible;
     private DefaultTableModel modeloTablaModelos;
 
-    // Fotografos
+    //Fotografos
     private JTextField txtNombreFoto, txtIdFoto, txtContactoFoto;
     private JTextField txtEspecialidadFoto, txtAnosFoto;
     private DefaultTableModel modeloTablaFotografos;
 
-    // Lugares
+    //Lugares
     private JTextField txtNombreLugar, txtDireccionLugar, txtCiudadLugar;
     private JTextField txtCapacidadLugar, txtTipoLugar;
     private DefaultTableModel modeloTablaLugares;
 
-    // Eventos
+    //Eventos
     private JTextField        txtNombreEvento, txtLugarEvento, txtExtra1, txtExtra2;
     private JLabel            lblExtra1, lblExtra2;
     private JComboBox<String> comboTipoEvento;
     private JSpinner          spDia, spMes, spAnio;
     private DefaultTableModel modeloTablaEventos;
 
-    // Asignacion
+    //Asignacion
     private JTextField        txtEventoAsignar, txtPersonaId;
     private JComboBox<String> comboTipoPersona;
     private JTextArea         areaAsignacion;
 
-    // ================================================================
-    // SPLASH SCREEN
-    // ================================================================
+    //SPLASH SCREEN
     private void mostrarSplash() {
         JWindow splash = new JWindow();
         splash.setSize(500, 300);
@@ -88,7 +84,6 @@ public class VentanaPrincipal extends JFrame {
         JLabel lblEmoji;
         java.net.URL urlLogo = getClass().getResource("recursos/logo.png");
         if (urlLogo == null) {
-            // Buscar relativo al directorio de ejecucion
             java.io.File archivoLogo = new java.io.File("recursos/logo.png");
             if (archivoLogo.exists()) {
                 ImageIcon iconoOriginal = new ImageIcon(archivoLogo.getAbsolutePath());
@@ -143,9 +138,7 @@ public class VentanaPrincipal extends JFrame {
         timer.start();
     }
 
-    // ================================================================
-    // CONSTRUCTOR Y ARRANQUE
-    // ================================================================
+    //CONSTRUCTOR Y ARRANQUE
     public VentanaPrincipal() { mostrarSplash(); }
 
     private void iniciarVentanaPrincipal() {
@@ -168,7 +161,7 @@ public class VentanaPrincipal extends JFrame {
         pestanas.setFont(new Font("Georgia", Font.PLAIN, 13));
         pestanas.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
 
-        // Colores personalizados de pestanas (sin emojis para compatibilidad con Windows)
+        //Colores personalizados de pestanas
         UIManager.put("TabbedPane.selected",           C_TARJETA);
         UIManager.put("TabbedPane.background",         C_FONDO);
         UIManager.put("TabbedPane.foreground",         C_TEXTO_DIM);
@@ -190,9 +183,8 @@ public class VentanaPrincipal extends JFrame {
         setVisible(true);
     }
 
-    // ================================================================
-    // HEADER
-    // ================================================================
+    //HEADER
+
     private JPanel crearHeader() {
         JPanel h = new JPanel(new BorderLayout()) {
             @Override protected void paintComponent(Graphics g) {
@@ -206,7 +198,7 @@ public class VentanaPrincipal extends JFrame {
         h.setPreferredSize(new Dimension(0, 62));
         h.setBorder(BorderFactory.createEmptyBorder(0, 20, 0, 20));
 
-        // Logo en el header
+        //Logo en el header
         JLabel emoji;
         java.io.File archivoLogo = new java.io.File("recursos/logo.png");
         if (archivoLogo.exists()) {
@@ -233,9 +225,7 @@ public class VentanaPrincipal extends JFrame {
         return h;
     }
 
-    // ================================================================
-    // HELPERS DE ESTILO
-    // ================================================================
+    //HELPERS DE ESTILO
     private JPanel tarjeta(String titulo) {
         JPanel p = new JPanel();
         p.setBackground(C_TARJETA);
@@ -358,9 +348,7 @@ public class VentanaPrincipal extends JFrame {
         return p;
     }
 
-    // ================================================================
-    // PANEL MODELOS
-    // ================================================================
+    //PANEL MODELOS
     private JPanel crearPanelModelos() {
         JPanel panel = new JPanel(new BorderLayout(8,8));
         panel.setBackground(C_FONDO);
@@ -444,9 +432,7 @@ public class VentanaPrincipal extends JFrame {
         chkDisponible.setSelected(true);
     }
 
-    // ================================================================
-    // PANEL FOTOGRAFOS
-    // ================================================================
+    //PANEL FOTOGRAFOS
     private JPanel crearPanelFotografos() {
         JPanel panel = new JPanel(new BorderLayout(8,8));
         panel.setBackground(C_FONDO);
@@ -516,9 +502,7 @@ public class VentanaPrincipal extends JFrame {
         txtEspecialidadFoto.setText(""); txtAnosFoto.setText("");
     }
 
-    // ================================================================
-    // PANEL LUGARES
-    // ================================================================
+    //PANEL LUGARES
     private JPanel crearPanelLugares() {
         JPanel panel = new JPanel(new BorderLayout(8,8));
         panel.setBackground(C_FONDO);
@@ -576,9 +560,7 @@ public class VentanaPrincipal extends JFrame {
         txtCiudadLugar.setText(""); txtCapacidadLugar.setText(""); txtTipoLugar.setText("");
     }
 
-    // ================================================================
-    // PANEL EVENTOS
-    // ================================================================
+    //PANEL EVENTOS
     private JPanel crearPanelEventos() {
         JPanel panel = new JPanel(new BorderLayout(8,8));
         panel.setBackground(C_FONDO);
@@ -684,9 +666,8 @@ public class VentanaPrincipal extends JFrame {
         txtExtra1.setText(""); txtExtra2.setText("");
     }
 
-    // ================================================================
-    // PANEL ASIGNACION
-    // ================================================================
+    //PANEL ASIGNACION
+
     private JPanel crearPanelAsignacion() {
         JPanel panel = new JPanel(new BorderLayout(8,8));
         panel.setBackground(C_FONDO);
@@ -754,9 +735,7 @@ public class VentanaPrincipal extends JFrame {
         areaAsignacion.setCaretPosition(0);
     }
 
-    // ================================================================
-    // HELPERS DIALOGO
-    // ================================================================
+    //HELPERS DIALOGO
     private void mostrarError(String msg) {
         JOptionPane.showMessageDialog(this,msg,"Error",JOptionPane.ERROR_MESSAGE);
     }
@@ -764,9 +743,7 @@ public class VentanaPrincipal extends JFrame {
         JOptionPane.showMessageDialog(this,msg,"Listo",JOptionPane.INFORMATION_MESSAGE);
     }
 
-    // ================================================================
-    // MAIN
-    // ================================================================
+    //MAIN
     public static void main(String[] args) {
         System.setProperty("awt.useSystemAAFontSettings","on");
         System.setProperty("swing.aatext","true");

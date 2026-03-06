@@ -24,7 +24,7 @@ public class Dates {
         }
     }
 
-    // Construye un LocalDate desde dia, mes y anio por separado (para los JSpinners)
+    // Construye un LocalDate desde dia, mes y año por separado
     public static LocalDate construir(int dia, int mes, int anio) {
         try {
             return LocalDate.of(anio, mes, dia);
