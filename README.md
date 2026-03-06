@@ -8,7 +8,9 @@
 ### Sistema de Gestión — Trabajo Práctico de Estructuras de Datos
 
 ---
-
+<p align="center">
+  <img src="recursos/introsistema.png" width="900">
+</p>
 ## Descripción del sistema
 
 Sistema desarrollado en **Java** con **interfaz gráfica Swing** para gestionar una agencia de modelaje.
@@ -52,7 +54,9 @@ La aplicación cuenta con una interfaz gráfica desarrollada en **Swing**, organ
 Esto permite gestionar de forma clara cada elemento del sistema.
 
 ---
-
+<p align="center">
+  <img src="recursos/Arquitectura.png" width="900">
+</p>
 ## Estructura del proyecto
 
 ```
@@ -86,7 +90,7 @@ AgenciaModelaje
 
 ---
 
-## Estructura de clases (POO)
+## Estructura de clases
 
 ```
 Persona (abstracta)
@@ -101,7 +105,9 @@ Lugar
 Agencia
 VentanaPrincipal
 ```
-
+<p align="center">
+  <img src="recursos/Diseno.png" width="900">
+</p>
 ### Descripción de las clases principales
 
 **Persona (abstracta)**  
@@ -147,7 +153,9 @@ Archivos utilizados:
 Estos archivos se crean automáticamente si no existen.
 
 ---
-
+<p align="center">
+  <img src="recursos/Ejecucion.png" width="900">
+</p>
 ## Instrucciones de compilación y ejecución
 
 ### 1. Compilar el proyecto
@@ -185,7 +193,9 @@ Se permite el uso de:
 - `Scanner`
 
 ---
-
+<p align="center">
+  <img src="recursos/informacion.png" width="900">
+</p>
 ## Principios de Programación Orientada a Objetos aplicados
 
 ### Herencia
