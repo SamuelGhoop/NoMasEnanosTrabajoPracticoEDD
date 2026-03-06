@@ -9,7 +9,7 @@
 
 ---
 <p align="center">
-  <img src="recursos/introsistema.png" width="900">
+  <img src="recursos/introsistema.png" width="900" height="120">
 </p>
 ## Descripción del sistema
 
@@ -55,7 +55,7 @@ Esto permite gestionar de forma clara cada elemento del sistema.
 
 ---
 <p align="center">
-  <img src="recursos/Arquitectura.png" width="900">
+  <img src="recursos/Arquitectura.png" width="900" height="120">
 </p>
 ## Estructura del proyecto
 
@@ -106,7 +106,7 @@ Agencia
 VentanaPrincipal
 ```
 <p align="center">
-  <img src="recursos/Diseno.png" width="900">
+  <img src="recursos/Diseno.png" width="900" height="120">
 </p>
 ### Descripción de las clases principales
 
@@ -154,7 +154,7 @@ Estos archivos se crean automáticamente si no existen.
 
 ---
 <p align="center">
-  <img src="recursos/Ejecucion.png" width="900">
+  <img src="recursos/Ejecucion.png" width="900" height="120">
 </p>
 ## Instrucciones de compilación y ejecución
 
@@ -194,7 +194,7 @@ Se permite el uso de:
 
 ---
 <p align="center">
-  <img src="recursos/informacion.png" width="900">
+  <img src="recursos/informacion.png" width="900" height="120">
 </p>
 ## Principios de Programación Orientada a Objetos aplicados
 
