@@ -1,11 +1,11 @@
 <p align="center">
-  <img src="recursos/logo.png" width="220">
+  <img src="recursos/logo.png" width="250">
 </p>
 
 # Agencia de Modelaje  
 ## "No Más Enanos Por Favor"
 
-### Sistema de Gestión — Trabajo Práctico de Programación Orientada a Objetos (POO)
+### Sistema de Gestión — Trabajo Práctico de Estructuras de Datos
 
 ---
 
