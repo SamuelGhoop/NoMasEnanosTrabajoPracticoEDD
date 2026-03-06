@@ -9,7 +9,7 @@
 
 ---
 <p align="center">
-  <img src="recursos/introsistemav2.png" width="500">
+  <img src="recursos/introsistemav2.png" width="900">
 </p>
 ## Descripción del sistema
 
