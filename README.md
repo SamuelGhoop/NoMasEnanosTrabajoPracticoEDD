@@ -55,7 +55,7 @@ Esto permite gestionar de forma clara cada elemento del sistema.
 
 ---
 <p align="center">
-  <img src="recursos/Arquitecturav2.png" width="500">
+  <img src="recursos/Arquitecturav2.png" width="900">
 </p>
 ## Estructura del proyecto
 
@@ -106,7 +106,7 @@ Agencia
 VentanaPrincipal
 ```
 <p align="center">
-  <img src="recursos/Disenov2.png" width="500">
+  <img src="recursos/Disenov2.png" width="900">
 </p>
 ### Descripción de las clases principales
 
@@ -154,7 +154,7 @@ Estos archivos se crean automáticamente si no existen.
 
 ---
 <p align="center">
-  <img src="recursos/Ejecucionv2.png" width="500">
+  <img src="recursos/Ejecucionv2.png" width="900">
 </p>
 ## Instrucciones de compilación y ejecución
 
@@ -194,7 +194,7 @@ Se permite el uso de:
 
 ---
 <p align="center">
-  <img src="recursos/informacionv2.png" width="500">
+  <img src="recursos/informacionv2.png" width="900">
 </p>
 ## Principios de Programación Orientada a Objetos aplicados
 
