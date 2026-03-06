@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 public class VentanaPrincipal extends JFrame {
 
-    // PALETA DE COLORES — tema luxury oscuro con dorado
+    // PALETA DE COLORES — tema oscuro con dorado
     private static final Color C_FONDO        = new Color(10,  10,  12);
     private static final Color C_SUPERFICIE   = new Color(20,  20,  24);
     private static final Color C_TARJETA      = new Color(28,  28,  34);
