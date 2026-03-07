@@ -749,7 +749,6 @@ public class VentanaPrincipal extends JFrame {
     public static void main(String[] args) {
         System.setProperty("awt.useSystemAAFontSettings","on");
         System.setProperty("swing.aatext","true");
-        // Forzar renderizado de emojis en Windows sin perder el tema personalizado
         System.setProperty("java.awt.headless","false");
         SwingUtilities.invokeLater(VentanaPrincipal::new);
     }
