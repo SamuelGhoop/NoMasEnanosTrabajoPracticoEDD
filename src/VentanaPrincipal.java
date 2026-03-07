@@ -82,9 +82,9 @@ public class VentanaPrincipal extends JFrame {
 
         // Intentamos cargar el logo real; si no existe usamos texto
         JLabel lblEmoji;
-        java.net.URL urlLogo = getClass().getResource("recursos/logo.png");
+        java.net.URL urlLogo = getClass().getResource("/recursos/logo.png");
         if (urlLogo == null) {
-            java.io.File archivoLogo = new java.io.File("recursos/logo.png");
+            java.io.File archivoLogo = new java.io.File("/recursos/logo.png");
             if (archivoLogo.exists()) {
                 ImageIcon iconoOriginal = new ImageIcon(archivoLogo.getAbsolutePath());
                 Image imgEscalada = iconoOriginal.getImage().getScaledInstance(180, 130, Image.SCALE_SMOOTH);
@@ -198,19 +198,21 @@ public class VentanaPrincipal extends JFrame {
         h.setPreferredSize(new Dimension(0, 62));
         h.setBorder(BorderFactory.createEmptyBorder(0, 20, 0, 20));
 
-        //Logo en el header
+        // Logo en el header
         JLabel emoji;
-        java.io.File archivoLogo = new java.io.File("recursos/logo.png");
-        if (archivoLogo.exists()) {
-            ImageIcon icono = new ImageIcon(archivoLogo.getAbsolutePath());
+
+        java.net.URL urlLogo = getClass().getResource("/recursos/logo.png");
+
+        if (urlLogo != null) {
+            ImageIcon icono = new ImageIcon(urlLogo);
             Image img = icono.getImage().getScaledInstance(-1, 50, Image.SCALE_SMOOTH);
             emoji = new JLabel(new ImageIcon(img));
         } else {
+            System.out.println("No se encontró el logo");
             emoji = new JLabel("");
-            emoji.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 28));
         }
-        emoji.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 12));
 
+        emoji.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 12));
         JPanel textos = new JPanel();
         textos.setLayout(new BoxLayout(textos, BoxLayout.Y_AXIS));
         textos.setOpaque(false);
