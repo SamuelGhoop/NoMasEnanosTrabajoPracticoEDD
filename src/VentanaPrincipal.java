@@ -406,7 +406,7 @@ public class VentanaPrincipal extends JFrame {
             }
             agencia.agregarModelo(new Modelo(nombre,id,contacto,codigo,estatura,categoria,disp));
             actualizarModelos(); limpiarModelo(); mostrarExito("Modelo registrado.");
-        } catch (NumberFormatException ex) { mostrarError("La estatura debe ser un número. Ejemplo: 1.75"); }
+        } catch (NumberFormatException ex) { mostrarError("La estatura debe ser un número."); }
     }
 
     private void eliminarModelo() {
