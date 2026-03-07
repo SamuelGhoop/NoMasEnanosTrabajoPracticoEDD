@@ -1,5 +1,4 @@
 import Classes.*;
-
 import javax.swing.*;
 import javax.swing.border.*;
 import javax.swing.table.*;
@@ -23,33 +22,50 @@ public class VentanaPrincipal extends JFrame {
     private Agencia agencia;
     private JTabbedPane pestanas;
 
-    //Modelos
+    // Modelos
     private JTextField txtNombreModelo, txtIdModelo, txtContactoModelo;
     private JTextField txtCodigoModelo, txtEstaturaModelo, txtCategoriaModelo;
     private JCheckBox  chkDisponible;
     private DefaultTableModel modeloTablaModelos;
 
-    //Fotografos
+    // Fotografos
     private JTextField txtNombreFoto, txtIdFoto, txtContactoFoto;
     private JTextField txtEspecialidadFoto, txtAnosFoto;
     private DefaultTableModel modeloTablaFotografos;
 
-    //Lugares
+    // Lugares
     private JTextField txtNombreLugar, txtDireccionLugar, txtCiudadLugar;
     private JTextField txtCapacidadLugar, txtTipoLugar;
     private DefaultTableModel modeloTablaLugares;
 
-    //Eventos
+    // Eventos
     private JTextField        txtNombreEvento, txtLugarEvento, txtExtra1, txtExtra2;
     private JLabel            lblExtra1, lblExtra2;
     private JComboBox<String> comboTipoEvento;
     private JSpinner          spDia, spMes, spAnio;
     private DefaultTableModel modeloTablaEventos;
 
-    //Asignacion
+    // Asignacion
     private JTextField        txtEventoAsignar, txtPersonaId;
     private JComboBox<String> comboTipoPersona;
     private JTextArea         areaAsignacion;
+
+    // Busca el logo probando rutas posibles (funciona en IntelliJ y en ZIP de GitHub)
+    private ImageIcon cargarLogo(int ancho, int alto) {
+        String[] rutas = {
+                "src/recursos/logo.png",
+                "Proyecto-Estructuras-De-Datos-main/src/recursos/logo.png"
+        };
+        for (String ruta : rutas) {
+            java.io.File f = new java.io.File(ruta);
+            if (f.exists()) {
+                Image img = new ImageIcon(f.getAbsolutePath()).getImage()
+                        .getScaledInstance(ancho, alto, Image.SCALE_SMOOTH);
+                return new ImageIcon(img);
+            }
+        }
+        return null;
+    }
 
     //SPLASH SCREEN
     private void mostrarSplash() {
@@ -82,21 +98,12 @@ public class VentanaPrincipal extends JFrame {
 
         // Intentamos cargar el logo real; si no existe usamos texto
         JLabel lblEmoji;
-        java.net.URL urlLogo = getClass().getResource("/recursos/logo.png");
-        if (urlLogo == null) {
-            java.io.File archivoLogo = new java.io.File("/recursos/logo.png");
-            if (archivoLogo.exists()) {
-                ImageIcon iconoOriginal = new ImageIcon(archivoLogo.getAbsolutePath());
-                Image imgEscalada = iconoOriginal.getImage().getScaledInstance(180, 130, Image.SCALE_SMOOTH);
-                lblEmoji = new JLabel(new ImageIcon(imgEscalada), SwingConstants.CENTER);
-            } else {
-                lblEmoji = new JLabel("", SwingConstants.CENTER);
-                lblEmoji.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 48));
-            }
+        ImageIcon iconoSplash = cargarLogo(180, 130);
+        if (iconoSplash != null) {
+            lblEmoji = new JLabel(iconoSplash, SwingConstants.CENTER);
         } else {
-            ImageIcon iconoOriginal = new ImageIcon(urlLogo);
-            Image imgEscalada = iconoOriginal.getImage().getScaledInstance(180, 130, Image.SCALE_SMOOTH);
-            lblEmoji = new JLabel(new ImageIcon(imgEscalada), SwingConstants.CENTER);
+            lblEmoji = new JLabel("", SwingConstants.CENTER);
+            lblEmoji.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 48));
         }
         lblEmoji.setAlignmentX(Component.CENTER_ALIGNMENT);
 
@@ -161,7 +168,7 @@ public class VentanaPrincipal extends JFrame {
         pestanas.setFont(new Font("Georgia", Font.PLAIN, 13));
         pestanas.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
 
-        //Colores personalizados de pestanas
+        // Colores personalizados de pestanas (sin emojis para compatibilidad con Windows)
         UIManager.put("TabbedPane.selected",           C_TARJETA);
         UIManager.put("TabbedPane.background",         C_FONDO);
         UIManager.put("TabbedPane.foreground",         C_TEXTO_DIM);
@@ -200,19 +207,15 @@ public class VentanaPrincipal extends JFrame {
 
         // Logo en el header
         JLabel emoji;
-
-        java.net.URL urlLogo = getClass().getResource("/recursos/logo.png");
-
-        if (urlLogo != null) {
-            ImageIcon icono = new ImageIcon(urlLogo);
-            Image img = icono.getImage().getScaledInstance(-1, 50, Image.SCALE_SMOOTH);
-            emoji = new JLabel(new ImageIcon(img));
+        ImageIcon iconoHeader = cargarLogo(-1, 50);
+        if (iconoHeader != null) {
+            emoji = new JLabel(iconoHeader);
         } else {
-            System.out.println("No se encontró el logo");
             emoji = new JLabel("");
+            emoji.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 28));
         }
-
         emoji.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 12));
+
         JPanel textos = new JPanel();
         textos.setLayout(new BoxLayout(textos, BoxLayout.Y_AXIS));
         textos.setOpaque(false);
@@ -406,7 +409,7 @@ public class VentanaPrincipal extends JFrame {
             }
             agencia.agregarModelo(new Modelo(nombre,id,contacto,codigo,estatura,categoria,disp));
             actualizarModelos(); limpiarModelo(); mostrarExito("Modelo registrado.");
-        } catch (NumberFormatException ex) { mostrarError("La estatura debe ser un número."); }
+        } catch (NumberFormatException ex) { mostrarError("La estatura debe ser un número. Ejemplo: 1.75"); }
     }
 
     private void eliminarModelo() {
@@ -633,7 +636,14 @@ public class VentanaPrincipal extends JFrame {
         }
         if(tipo.equals("Publico")) {
             try {
-                agencia.agregarEvento(new EventoPublico(nombre,fecha,lugar,Integer.parseInt(e1),e2));
+                int capacidadEvento = Integer.parseInt(e1);
+                // Validar que la capacidad del evento no supere la del lugar
+                if (lugar != null && capacidadEvento > lugar.getCapacidad()) {
+                    mostrarError("La capacidad del evento (" + capacidadEvento + ") supera\n"
+                            + "la capacidad máxima del lugar (" + lugar.getCapacidad() + ").");
+                    return;
+                }
+                agencia.agregarEvento(new EventoPublico(nombre,fecha,lugar,capacidadEvento,e2));
                 mostrarExito("Evento Publico creado.");
             } catch(NumberFormatException ex) { mostrarError("La capacidad debe ser un número entero."); return; }
         } else {
@@ -724,6 +734,7 @@ public class VentanaPrincipal extends JFrame {
             if(ok) mostrarExito("Fotógrafo '"+f.getNombre()+"' asignado.");
             else   mostrarError("El fotógrafo ya estaba asignado.");
         }
+        actualizarEventos(); // Actualiza conteo en pestaña Eventos
         verDetalles();
     }
 

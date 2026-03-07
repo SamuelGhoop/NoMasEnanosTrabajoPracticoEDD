@@ -1,2 +1,5 @@
 PUBLICO,a,07/03/2026,a,1,a
+ASIG_MODELO,1
+---
 PUBLICO,aaa,07/03/2026,a,12,a
+---
