@@ -3,7 +3,7 @@ package Classes;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-// Clase utilitaria para formatear fechas
+// Clase para formatear fechas
 // Se usa en Evento.baseDetalle() y en la interfaz grafica
 public class Dates {
 
@@ -33,3 +33,4 @@ public class Dates {
         }
     }
 }
+

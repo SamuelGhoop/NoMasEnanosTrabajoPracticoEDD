@@ -33,7 +33,7 @@ public class Fotografo extends Persona {
 
     public String toCSV() {
         return nombre + "," + identificacion + "," + contacto + ","
-             + especialidad + "," + anosExperiencia;
+                + especialidad + "," + anosExperiencia;
     }
 
     public static Fotografo fromCSV(String linea) {

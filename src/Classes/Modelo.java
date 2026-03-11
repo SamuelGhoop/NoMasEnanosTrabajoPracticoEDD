@@ -45,7 +45,7 @@ public class Modelo extends Persona {
     // Para guardar en archivo plano
     public String toCSV() {
         return nombre + "," + identificacion + "," + contacto + ","
-             + codigoModelo + "," + estatura + "," + categoria + "," + disponible;
+                + codigoModelo + "," + estatura + "," + categoria + "," + disponible;
     }
 
     // Para reconstruir desde archivo plano
