@@ -55,7 +55,7 @@ public class VentanaPrincipal extends JFrame {
     private ImageIcon cargarLogo(int ancho, int alto) {
         String[] rutas = {
                 "src/recursos/logo.png",
-                "Proyecto-Estructuras-De-Datos-main/src/recursos/logo.png"
+                "NoMasEnanosTrabajoPracticoEDD-master/src/recursos/logo.png"
         };
         for (String ruta : rutas) {
             java.io.File f = new java.io.File(ruta);
